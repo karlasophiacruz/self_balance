@@ -1,0 +1,6 @@
+{
+    "port": "COM7",
+    "board": "arduino:avr:uno",
+    "programmer": "arduino:arduinoisp",
+    "sketch": "src\\project_3.ino"
+}
