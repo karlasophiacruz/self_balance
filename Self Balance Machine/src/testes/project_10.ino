@@ -3,10 +3,15 @@
 // #include <Arduino.h>
 // #include <MsTimer2.h>        //internal timer 2
 // //#include <PinChangeInt.h>    //this library can make all pins of arduino REV4 as external interrupt
+// #include <LiquidCrystal_I2C.h>
 // #include <MPU6050.h>      //MPU6050 library 
-// #include <Wire.h>        //IIC communication library 
+// #include <Wire.h> 
+
+// LiquidCrystal_I2C lcd(0x27,16,2);  // Criando um LCD de 16x2 no endereço 0x20
+//        //IIC communication library 
 
 // MPU6050 mpu6050;     //Instantiate an MPU6050 object; name mpu6050
+
 // int16_t ax, ay, az, gx, gy, gz;     //Instantiate an MPU6050 object; name mpu6050
 
 // //TB6612 pins
@@ -55,48 +60,55 @@
 // //void anglePWM();
 
 // void setup() {
-//   //set the control motor’s pin to OUTPUT
-//   pinMode(right_R1, OUTPUT);       
-//   pinMode(right_R2, OUTPUT);
-//   pinMode(left_L1, OUTPUT);
-//   pinMode(left_L2, OUTPUT);
-//   pinMode(PWM_R, OUTPUT);
-//   pinMode(PWM_L, OUTPUT);
+//     // lcd.init();                 // Inicializando o LCD
+//     // lcd.backlight();            // Ligando o BackLight do LCD
+//     //set the control motor’s pin to OUTPUT
+//     pinMode(right_R1, OUTPUT);       
+//     pinMode(right_R2, OUTPUT);
+//     pinMode(left_L1, OUTPUT);
+//     pinMode(left_L2, OUTPUT);
+//     pinMode(PWM_R, OUTPUT);
+//     pinMode(PWM_L, OUTPUT);
 
-//   //Initial state value
-//   digitalWrite(right_R1, 1);
-//   digitalWrite(right_R2, 0);
-//   digitalWrite(left_L1, 0);
-//   digitalWrite(left_L2, 1);
-//   analogWrite(PWM_R, 0);
-//   analogWrite(PWM_L, 0);
+//     //Initial state value
+//     digitalWrite(right_R1, 1);
+//     digitalWrite(right_R2, 0);
+//     digitalWrite(left_L1, 0);
+//     digitalWrite(left_L2, 1);
+//     analogWrite(PWM_R, 0);
+//     analogWrite(PWM_L, 0);
 
-//   // Join I2C bus
-//   Wire.begin();                            //Join the I2C bus sequence
-//   Serial.begin(9600);                       //open serial monitor, set the baud rate to 9600
-//   delay(1500);
-//   mpu6050.initialize();                       //initialize MPU6050
-//   delay(2);
+//     // Join I2C bus
+//     Wire.begin();                            //Join the I2C bus sequence
+//     Serial.begin(9600);                       //open serial monitor, set the baud rate to 9600
+//     delay(1500);
+//     mpu6050.initialize();                       //initialize MPU6050
+//     delay(2);
 
-//   //5ms  use timer2 to set the timer interrupt (Note: using timer2 will affect the PWM output of pin3 pin11.)
-//   MsTimer2::set(5, DSzhongduan);    //5ms execute the function DSzhongduan once
-//   MsTimer2::start();    // start the interrupt
+//     //5ms  use timer2 to set the timer interrupt (Note: using timer2 will affect the PWM output of pin3 pin11.)
+//     MsTimer2::set(5, DSzhongduan);    //5ms execute the function DSzhongduan once
+//     MsTimer2::start();    // start the interrupt
 // }
 
 // void loop() {
-//   Serial.print("angle = ");
-//   Serial.println(angle);
-//   Serial.print("Angle = ");
-//   Serial.println(Angle);
+//     // lcd.setBacklight(HIGH);
+//     // lcd.setCursor(1,0);
+//     // lcd.print("angle = ");
+//     // lcd.print(angle);
+//     // lcd.setCursor(0,1);
+//     // lcd.print("Angle = ");
+//     // lcd.print(Angle);
 
-//   /*Serial.print("Gyro_x = ");
-//   Serial.println(Gyro_x);
-//   Serial.print("K_Gyro_x = ");
-//   Serial.println(angle_speed);*/
-  
-//   //Serial.println(PD_pwm);
-//   //Serial.println(pwm1);
-//   //Serial.println(pwm2);
+//     // delay(100);
+
+//     /*Serial.print("Gyro_x = ");
+//     Serial.println(Gyro_x);
+//     Serial.print("K_Gyro_x = ");
+//     Serial.println(angle_speed);*/
+
+//     //Serial.println(PD_pwm);
+//     //Serial.println(pwm1);
+//     //Serial.println(pwm2);
 // }
 
 // //////////////////angle PD////////////////////
