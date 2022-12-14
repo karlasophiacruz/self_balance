@@ -4,8 +4,11 @@
 // #include <MsTimer2.h>        //internal timer 2
 // // #include <PinChangeInt.h>    //this library can make all pins of arduino REV4 as external interrupt
 // #include <EnableInterrupt.h>
+// #include <LiquidCrystal_I2C.h>
 // #include <MPU6050.h>      //MPU6050 library
 // #include <Wire.h>        //IIC communication library
+
+// LiquidCrystal_I2C lcd(0x27,16,2);  // Criando um LCD de 16x2 no endereço 0x20
 
 // MPU6050 mpu6050;     //Instantiate an MPU6050 object; name mpu6050
 // int16_t ax, ay, az, gx, gy, gz;     //Define three-axis acceleration, three-axis gyroscope variables
@@ -90,6 +93,8 @@
 
 // int TT;
 
+// int lcd_cont = 0;
+
 // void setup() {
 //   //set the control pins of motor to OUTPUT
 //   pinMode(right_R1, OUTPUT);       
@@ -115,6 +120,9 @@
 //   Serial.begin(9600);                       //open the serial monitor, set the baud rate to 9600
 //   delay(1500);
 //   mpu6050.initialize();                       //initialize MPU6050
+//   delay(2);
+//   lcd.init();                 // Inicializando o LCD
+//   lcd.backlight();            // Ligando o BackLight do LCD
 //   delay(2);
 
 //   //5ms; use timer2 to set timer interruption (note：using timer2 will affect the PWM output of pin3 pin11)
@@ -280,6 +288,24 @@
 //   if(turncc > 4) {      //20ms, that is, execute the PD calculation of steering once per 40ms
 //     turnspin();
 //     turncc = 0;     //Clear
+//   }
+//   lcd_cont++;
+//   if(lcd_cont >= 200) {    //5*200=1000，1000ms entering once LCD display
+//     lcd_cont = 0;  //Clear
+//     lcd.clear();
+//     lcd.setCursor(0,0);
+//     lcd.print("a:");
+//     lcd.print(angle);
+//     lcd.print(" s:");
+//     lcd.print(speeds_filter);
+//     lcd.setCursor(0,1);
+//     // lcd.print("i");
+//     lcd.print(ki);
+//     lcd.print(" ");
+//     lcd.print(kp);
+//     lcd.print(" ");
+//     lcd.print(kd);
+    
 //   }
 // }
 // ///////////////////////////////////////////////////////////

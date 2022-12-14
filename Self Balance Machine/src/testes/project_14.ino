@@ -126,7 +126,7 @@
 //   delay(1500);
 //   mpu6050.initialize();                       //initialize MPU6050
 //   lcd.init();                 // Inicializando o LCD
-//   lcd.backlight();            // Ligando o BackLight do LCD
+// //   lcd.backlight();            // Ligando o BackLight do LCD
 //   delay(2);
 
 //   //5ms; use timer2 to set the timer interrupt (note: using timer2 may affects the PWM output of pin3 pin11)
@@ -447,7 +447,7 @@
 //   }
 
     
-//   lcd.setCursor(1,0);
-//   lcd.print("angle = ");
-//   lcd.print(angle);
+// //   lcd.setCursor(1,0);
+// //   lcd.print("angle = ");
+// //   lcd.print(angle);
 // }

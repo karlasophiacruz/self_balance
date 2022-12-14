@@ -104,9 +104,10 @@ void setup() {
     Serial.begin(9600);                       //open the serial monitor to set the baud rate to 9600
     delay(1500);
     mpu6050.initialize();                       //initialize MPU6050
-    delay(2);
     lcd.init();                 // Inicializando o LCD
     lcd.backlight();            // Ligando o BackLight do LCD
+
+    delay(2);
 
     //5ms; use timer2 to set timer interruption (note：using timer2 will affect the PWM output of pin3 pin11)
     MsTimer2::set(5, DSzhongduan);    //5ms ; execute the function DSzhongduan once
@@ -114,21 +115,6 @@ void setup() {
 }
 
 void loop() {
-    // lcd.setBacklight(HIGH);
-    // lcd.setCursor(1,0);
-    // lcd.print("angle = ");
-    // lcd.print(angle);
-    //delay(100);
-    //Serial.println(PD_pwm);
-    //Serial.println(pwm1);
-    //Serial.println(pwm2);
-    //Serial.print("pulseright = ");
-    //Serial.println(pulseright);
-    //Serial.print("pulseleft = ");
-    //Serial.println(pulseleft);
-    //Serial.println(PI_pwm);
-    //Serial.println(speeds_filter);
-    //Serial.println (positions);
 
     //External interrupt for calculating wheel speed 
     attachPinChangeInterrupt(PinA_left, Code_left, CHANGE);          //PinA_left Level change triggers external interrupt; execute subfunction Code_left
