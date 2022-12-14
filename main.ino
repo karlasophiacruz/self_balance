@@ -5,11 +5,11 @@
 /* | Disciplina: Microcontroladores e Aplicações                            | */
 /* | Professor: Erick Barboza                                               | */
 /* | Alunos: Bruno Lemos, Karla Sophia, Leticia Gabriela e Maria Fernanda   | */
+/* | Período: 2022.1                        Data: 15/12/2022                | */
 /* |------------------------------------------------------------------------| */
 
 /* --------------------------Importando Bibliotecas-------------------------- */
 
-#include <Arduino.h>
 #include <MsTimer2.h>
 #include <EnableInterrupt.h>
 #include <LiquidCrystal_I2C.h>
